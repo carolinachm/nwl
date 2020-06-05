@@ -40,15 +40,15 @@ routes.post('/points', async (request, response) => {
     uf,
   });
 
-  const pointItems = items.map((idem_id: number) => {
+  const pointItems = items.map((item_id: number) => {
       return {
-          idem_id,
+          item_id,
           point_id: ids[0]
       }
   })
   
   await knex('point_items').insert(pointItems);
-  
+
   return response.json({ success: true });
 });
 export default routes;
